@@ -1,5 +1,5 @@
 import User from "../user/user.model.js";
-
+import Categorie from "../categorie/categorie.model.js";
 
 export const existsEmail = async (email = "", { req }) => {
     const userId = req.params.id; 
@@ -20,6 +20,12 @@ export const existUsername = async (username = "", { req }) => {
     }
 };
 
+export const existsCategorieById = async (id = '') => {
+  const existsCategorie = await Categorie.findById(id);
+  if (!existsCategorie) {
+    throw new Error(`The ID ${id} does not exist in the database`);
+  }
+}
 
 export const existsUserById = async (id = "") => {
   const existsUser = await User.findById(id);
