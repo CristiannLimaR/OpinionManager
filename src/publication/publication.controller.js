@@ -1,5 +1,6 @@
 import Category from "../category/category.model.js";
 import Publication from "./publication.model.js";
+import Comment from "../comment/comment.model.js";
 
 export const savePublication = async (req, res) => {
   try {
@@ -61,7 +62,7 @@ export const getPublications = async (req, res) => {
         publication.comments.length > 0
           ? publication.comments.map((comment) => ({
               content: comment.content,
-              author: comment.user ? comment.user.username : "Unknown User",
+              author: comment.author ? comment.user.username : "Unknown User",
             }))
           : [],
     }));
@@ -128,11 +129,11 @@ export const getPublicationsById = async (req, res) => {
 export const updatePublication = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, content, author, comments } = req.body;
+    const { title, content, author, comments, category } = req.body;
 
-    const category = await Category.findOne({ name: data.category });
+    const newCategory = await Category.findOne({ name: category  });
 
-    if (!category) {
+    if (!newCategory) {
       return res.status(404).json({
         success: false,
         msg: "category not found",
@@ -161,8 +162,9 @@ export const updatePublication = async (req, res) => {
         msg: "Publication not found",
       });
     }
+    
 
-    if (publication.user.id !== req.user.id) {
+    if (publication.author.toString() !== req.user.id) {
       return res.status(403).json({
         success: false,
         msg: "You are not authorized to edit this publication",
@@ -171,7 +173,7 @@ export const updatePublication = async (req, res) => {
 
     publication.title = title || publication.title;
     publication.content = content || publication.content;
-    publication.category = category || publication.category;
+    publication.category = newCategory || publication.category;
 
     const updatedPublication = await publication.save();
 
@@ -201,7 +203,7 @@ export const deletePublication = async (req, res) => {
       });
     }
 
-    if (publication.author.id !== authenticatedUser.id) {
+    if (publication.author.toString() !== authenticatedUser.id) {
       return res.status(403).json({
         message: "Unauthorized | You can only delete your publications ",
       });
