@@ -1,14 +1,14 @@
 import { request, response } from "express";
-import Categorie from "./categorie.model.js";
+import Category from "./category.model.js";
 import User from "../user/user.model.js";
 
 
-export const getCategories = async (req = request, res = response) => {
+export const getCategories = async (req, res) => {
   try {
     const { limit = 10, offset = 0 } = req.query;
     const [total, categories] = await Promise.all([
-      Categorie.countDocuments({ state: true }),
-      Categorie.find({ state: true }).skip(Number()).limit(Number(limit)),
+      Category.countDocuments({ state: true }),
+      Category.find({ state: true }).skip(Number(offset)).limit(Number(limit)),
     ]);
 
     res.status(200).json({
@@ -25,15 +25,15 @@ export const getCategories = async (req = request, res = response) => {
   }
 };
 
-export const getCategorieById = async (req, res) => {
+export const getCategoryById = async (req, res) => {
   try {
     const { id } = req.params;
-    const categorie = await Categorie.findById(id);
+    const categorie = await Category.findById(id);
 
     if (!categorie) {
       return res.status(404).json({
         success: false,
-        msg: "Categorie not found",
+        msg: "Category not found",
       });
     }
 
@@ -44,13 +44,13 @@ export const getCategorieById = async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      msg: "error searching categorie",
+      msg: "error searching category",
       error: error.message,
     });
   }
 };
 
-export const saveCategorie = async (req, res) => {
+export const saveCategory = async (req, res) => {
   try {
     const data = req.body;
     const authenticatedUser = req.user;
@@ -62,25 +62,25 @@ export const saveCategorie = async (req, res) => {
       });
     }
 
-    const categorie = new Categorie({
+    const category = new Category({
       ...data,
     });
-    await categorie.save();
+    await category.save();
 
     res.status(200).json({
       success: true,
-      categorie,
+      category,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      msg: "Error saving Categorie",
+      msg: "Error saving Category",
       error,
     });
   }
 };
 
-export const updateCategorie = async (req, res) => {
+export const updateCategory = async (req, res) => {
   try {
     const { id } = req.params;
     const { ...data } = req.body;
@@ -94,25 +94,25 @@ export const updateCategorie = async (req, res) => {
         msg: "Only de admin can update categories",
       });
     }
-    const categorie = await Categorie.findByIdAndUpdate(id, data, {
+    const categorie = await Category.findByIdAndUpdate(id, data, {
       new: true,
     });
 
     res.status(200).json({
       success: true,
-      msg: "categorie successfully updated",
+      msg: "category successfully updated",
       categorie,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      msg: "error updating categorie",
+      msg: "error updating category",
       error: error.message,
     });
   }
 };
 
-export const deleteCategorie = async (req, res) => {
+export const deleteCategory = async (req, res) => {
   try {
     const { id } = req.params;
     const authenticatedUser = req.user;
@@ -125,16 +125,16 @@ export const deleteCategorie = async (req, res) => {
         msg: "Only de admin can delete categories",
       });
     }
-    const categorie = await Categorie.findByIdAndUpdate(id, { state: false });
+    const categorie = await Category.findByIdAndUpdate(id, { state: false });
     res.status(200).json({
       success: true,
-      msg: "categorie successfully removed",
+      msg: "category successfully removed",
       categorie
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      msg: "error deleting categorie",
+      msg: "error deleting category",
       error: error.message,
     });
   }

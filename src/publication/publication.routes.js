@@ -1,35 +1,33 @@
 import { Router } from "express";
-import { check } from "express-validator";
-import { deleteCategorie, getCategorieById, getCategories, saveCategorie, updateCategorie} from "./categorie.controller.js";
+import { deletePublication, getPublications, getPublicationsById, savePublication, updatePublication } from "./publication.controller.js";
 import { validateFields } from "../middlewares/validate-fields.js";
-import { existsCategorieById } from "../helpers/db-validator.js";
 import { validateJWT } from "../middlewares/validate-jwt.js";
+import { check } from "express-validator";
+
 
 const router = Router();
 
-router.get("/", getCategories);
+router.get("/", getPublications);
 
 router.get(
   "/:id",
   [
     check("id", "No es un ID valido").isMongoId(),
-    check("id").custom(existsCategorieById),
     validateFields
   ],
-  getCategorieById
+  getPublicationsById
 );
 
-router.post("/", [validateJWT], saveCategorie);
+router.post("/", [validateJWT], savePublication);
 
 router.put(
   "/:id",
   [
     validateJWT,
     check("id", "No es un ID valido").isMongoId(),
-    check("id").custom(existsCategorieById),
     validateFields,
   ],
-  updateCategorie
+  updatePublication
 );
 
 router.delete(
@@ -37,10 +35,9 @@ router.delete(
   [
     validateJWT,
     check("id", "No es un ID valido").isMongoId(),
-    check("id").custom(existsCategorieById),
     validateFields,
   ],
-  deleteCategorie
+  deletePublication
 );
 
 export default router;
