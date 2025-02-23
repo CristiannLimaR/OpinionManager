@@ -7,6 +7,7 @@ import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import categorieRoutes from "../src/category/category.routes.js"
 import publicationRoutes from "../src/publication/publication.routes.js"
+import commentRoutes from "../src/comment/comment.routes.js"
 
 
 export const middlewares = (app) => {
@@ -21,7 +22,8 @@ const routes = (app) => {
     app.use("/opinionManager/v1/auth",authRoutes),
     app.use("/opinionManager/v1/users",userRoutes),
     app.use("/opinionManager/v1/categories", categorieRoutes),
-    app.use("/opinionManager/v1/publications",publicationRoutes)
+    app.use("/opinionManager/v1/publications",publicationRoutes),
+    app.use("/opinionManager/v1/comments", commentRoutes)
 };
 
 const connectDB = async () => {

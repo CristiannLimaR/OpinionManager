@@ -45,9 +45,11 @@ export const getPublications = async (req, res) => {
       Publication.find({ state: true })
         .skip(Number(offset))
         .limit(Number(limit))
+        .populate("category", "name")
         .populate("author", "username")
         .populate({
           path: "comments",
+          match: { state: true },
           populate: { path: "author", select: "username" },
         })
         .sort({ createdAt: -1 }),
@@ -55,6 +57,9 @@ export const getPublications = async (req, res) => {
 
     const publicationsWithUsername = publications.map((publication) => ({
       ...publication.toObject(),
+      category: publication.category
+        ? publication.category.name
+        : "Category not found",
       author: publication.author
         ? publication.author.username
         : "Author not found",
@@ -62,7 +67,7 @@ export const getPublications = async (req, res) => {
         publication.comments.length > 0
           ? publication.comments.map((comment) => ({
               content: comment.content,
-              author: comment.author ? comment.user.username : "Unknown User",
+              author: comment.author ? comment.author.username : "Unknown User",
             }))
           : [],
     }));
@@ -85,15 +90,19 @@ export const getPublicationsById = async (req, res) => {
   try {
     const { id } = req.params;
     const publication = await Publication.findById(id)
-      .populate("user", "username")
+      .populate("category", "name")
+      .populate("author", "username")
       .populate({
         path: "comments",
-        populate: { path: "User", select: username },
+        populate: { path: "author", select: "username" },
       })
       .sort({ createdAt: -1 });
 
     const publicationWithUsername = {
       ...publication.toObject(),
+      category: publication.category
+        ? publication.category.name
+        : "Category not found",
       author: publication.author
         ? publication.author.username
         : "Author not found",
@@ -101,7 +110,7 @@ export const getPublicationsById = async (req, res) => {
         publication.comments.length > 0
           ? publication.comments.map((comment) => ({
               content: comment.content,
-              author: comment.user ? comment.user.username : "Unknown User",
+              author: comment.user ? comment.author.username : "Unknown User",
             }))
           : [],
     };
@@ -118,7 +127,7 @@ export const getPublicationsById = async (req, res) => {
       publication: publicationWithUsername,
     });
   } catch (error) {
-    req.status(500).json({
+    res.status(500).json({
       success: false,
       msg: "Error getting publication",
       error: error.message,
@@ -131,7 +140,7 @@ export const updatePublication = async (req, res) => {
     const { id } = req.params;
     const { title, content, author, comments, category } = req.body;
 
-    const newCategory = await Category.findOne({ name: category  });
+    const newCategory = await Category.findOne({ name: category });
 
     if (!newCategory) {
       return res.status(404).json({
@@ -162,7 +171,6 @@ export const updatePublication = async (req, res) => {
         msg: "Publication not found",
       });
     }
-    
 
     if (publication.author.toString() !== req.user.id) {
       return res.status(403).json({
@@ -209,6 +217,11 @@ export const deletePublication = async (req, res) => {
       });
     }
 
+    await Comment.updateMany(
+      { publication: publication.id },
+      { $set: { state: false } }
+    );
+
     const deletedPublication = await Publication.findByIdAndUpdate(
       publication.id,
       { state: false }
@@ -216,7 +229,7 @@ export const deletePublication = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      msg: "Publication deactivated successfully",
+      msg: "Publication and its comments deactivated successfully",
       deletedPublication,
     });
   } catch (error) {

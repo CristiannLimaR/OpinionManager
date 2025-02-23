@@ -1,7 +1,7 @@
 import { request, response } from "express";
 import Category from "./category.model.js";
+import Publication from "../publication/publication.model.js";
 import User from "../user/user.model.js";
-
 
 export const getCategories = async (req, res) => {
   try {
@@ -58,7 +58,7 @@ export const saveCategory = async (req, res) => {
     if (authenticatedUser.id !== adminUser.id) {
       return res.status(401).json({
         success: false,
-        msg: "Only the admin can create new categories"
+        msg: "Only the admin can create new categories",
       });
     }
 
@@ -117,24 +117,58 @@ export const deleteCategory = async (req, res) => {
     const { id } = req.params;
     const authenticatedUser = req.user;
 
-    const adminUser = await User.findOne({ username: "admin" });
     
+    const adminUser = await User.findOne({ username: "admin" });
+
     if (authenticatedUser.id !== adminUser.id) {
       return res.status(401).json({
         success: false,
-        msg: "Only de admin can delete categories",
+        msg: "Only the admin can delete categories",
       });
     }
-    const categorie = await Category.findByIdAndUpdate(id, { state: false });
+
+    
+    const category = await Category.findById(id);
+    if (!category) {
+      return res.status(404).json({
+        success: false,
+        msg: "Category not found",
+      });
+    }
+
+    
+    let generalCategory = await Category.findOne({ name: "General" });
+
+    if (!generalCategory) {
+      generalCategory = new Category({ name: "General" });
+      await generalCategory.save();
+    }
+
+    const publications = await Publication.countDocuments({ category: category.id });
+
+    if (publications > 0) {
+      await Publication.updateMany(
+        { category: category.id },
+        { $set: { category: generalCategory.id } }
+      );
+    }
+
+    const deletedCategory = await Category.findByIdAndUpdate(
+      id,
+      { state: false },
+      { new: true } 
+    );
+
     res.status(200).json({
       success: true,
-      msg: "category successfully removed",
-      categorie
+      msg: "Category successfully removed",
+      deletedCategory,
     });
+
   } catch (error) {
     res.status(500).json({
       success: false,
-      msg: "error deleting category",
+      msg: "Error deleting category",
       error: error.message,
     });
   }
