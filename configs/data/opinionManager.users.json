@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "67b62f1ae3f1dd82eac7471b"
+  },
+  "name": "admin",
+  "surname": "admin",
+  "email": "admin@gmail.com",
+  "username": "admin",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$TGRPlMyNod5a6Y8XNQrAVg$JDBgC3T7bN6VGdGn5hOJuWeSl57ezTMecKVEaL5rZ/A",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-19T19:20:58.948Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-19T19:20:58.948Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3ce22104e811e386f474e"
+  },
+  "name": "Cristian",
+  "surname": "Lima",
+  "email": "cristiann@gmail.com",
+  "username": "LordCriss",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$ZJeicd8TVImkZfRtwvcEUg$vmkwB077neozT5dqVYk9B/2r+TU/NpTmShKiuruT9rw",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:02:42.291Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T00:28:09.051Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3d004e658b1f808ee1b6b"
+  },
+  "name": "Cristian",
+  "surname": "Lima",
+  "email": "cristian@gmail.com",
+  "username": "LordCrissss",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$7ixIoioIn0gyWSc3HHaWRw$lJtKd+Vf7HDVirtyROH4nfKOW6nM2H2GThAF8IFDhoo",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-18T00:10:44.209Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T01:45:02.931Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b4a176e606e4623af7a9c4"
+  },
+  "name": "Andres",
+  "surname": "Peralta",
+  "email": "pepa@gmail.com",
+  "username": "Pepa",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$wh6nFTgkWjd0vMxmSfueJg$8jqe+Wxja91Zla7pzQkSQj9b35ZUKkJIXdjuD15CN1w",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-18T15:04:22.733Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T15:14:45.746Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba544b1a6ada4a046b6c3b"
+  },
+  "name": "Lisandro",
+  "surname": "Jimenez",
+  "email": "Lis@gmail.com",
+  "username": "Lis",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$81slFvsCeg1jgk2hKFceKQ$6EIS56JNJ8fQYTpLB6Um2UoFRhC2Emab7rDsWDiMvnA",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T22:48:43.445Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T22:54:25.194Z"
+  }
+}]

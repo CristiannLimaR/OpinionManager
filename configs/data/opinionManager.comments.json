@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "67b6a68d2f38065384266f5f"
+  },
+  "content": "No tuvo oportunidad el city",
+  "author": {
+    "$oid": "67b4a176e606e4623af7a9c4"
+  },
+  "publication": {
+    "$oid": "67b65419a530b13440c8344e"
+  },
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-20T03:50:37.229Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-20T04:08:11.437Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b6ae270ba64d0fea7ca6fa"
+  },
+  "content": "VAMOOOOS",
+  "author": {
+    "$oid": "67b4a176e606e4623af7a9c4"
+  },
+  "publication": {
+    "$oid": "67b65419a530b13440c8344e"
+  },
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-20T04:23:03.705Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-20T04:23:03.705Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba5b9d4e93205a2a0d1090"
+  },
+  "content": "Sin Haland no hicieron nada",
+  "author": {
+    "$oid": "67ba544b1a6ada4a046b6c3b"
+  },
+  "publication": {
+    "$oid": "67b65419a530b13440c8344e"
+  },
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T23:19:57.505Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:23:17.521Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba5ce74e93205a2a0d10b4"
+  },
+  "content": "😍❤️💙",
+  "author": {
+    "$oid": "67ba544b1a6ada4a046b6c3b"
+  },
+  "publication": {
+    "$oid": "67ba5a014e93205a2a0d105e"
+  },
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T23:25:27.228Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:25:27.228Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba5df34e93205a2a0d10d9"
+  },
+  "content": "Dani Olmo 🔥🕛",
+  "author": {
+    "$oid": "67b3d004e658b1f808ee1b6b"
+  },
+  "publication": {
+    "$oid": "67ba5a014e93205a2a0d105e"
+  },
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T23:29:55.532Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:29:55.532Z"
+  }
+}]

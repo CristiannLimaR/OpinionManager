@@ -1,0 +1,101 @@
+[{
+  "_id": {
+    "$oid": "67b65419a530b13440c8344e"
+  },
+  "title": "City fuera de la Champions",
+  "category": {
+    "$oid": "67b65e5d108ca85d9413ebcc"
+  },
+  "content": "El dia de hoy 19 de febrero el Manchester City queda eliminado de la UEFA Champions league tras perder 3-0 ante el Real Madrid, con hat-trick de Kylian Mbappe",
+  "author": {
+    "$oid": "67b4a176e606e4623af7a9c4"
+  },
+  "comments": [
+    {
+      "$oid": "67b6a68d2f38065384266f5f"
+    },
+    {
+      "$oid": "67b6ae270ba64d0fea7ca6fa"
+    },
+    {
+      "$oid": "67ba5b9d4e93205a2a0d1090"
+    }
+  ],
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-19T21:58:49.640Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:19:57.508Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b69b64e991dc5b50a60964"
+  },
+  "title": "PSG pasa a Octavos",
+  "category": {
+    "$oid": "67b65e5d108ca85d9413ebcc"
+  },
+  "content": "El PSG Chima al Brest con un marcador global de 10-0 ",
+  "author": {
+    "$oid": "67b4a176e606e4623af7a9c4"
+  },
+  "comments": [],
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-20T03:03:00.180Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-20T03:03:00.180Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba5a014e93205a2a0d105e"
+  },
+  "title": "Victoria del FC Barcelona ante Las Palmas",
+  "category": {
+    "$oid": "67b65e5d108ca85d9413ebcc"
+  },
+  "content": "Hoy 22 de febrero el FC Barcelona gana en liga 2-0 a Las palmas, lo que le permite seguir siendo ir primero en liga con 54 puntos, uno más que el Atletic y a 3 del Real Madrid el cual juega mañana el partido de esta jornada de liga",
+  "author": {
+    "$oid": "67ba544b1a6ada4a046b6c3b"
+  },
+  "comments": [
+    {
+      "$oid": "67ba5ce74e93205a2a0d10b4"
+    },
+    {
+      "$oid": "67ba5df34e93205a2a0d10d9"
+    }
+  ],
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T23:13:05.853Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:33:10.853Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba5b1d4e93205a2a0d1073"
+  },
+  "title": "Invencible temporada 3",
+  "category": {
+    "$oid": "67ba57251a6ada4a046b6c7d"
+  },
+  "content": "La temporada 3 de ´Invencible´ se estrenó el pasado jueves 6 de febrero de 2025, con la llegada de sus tres primeros episodios. Esta temporada se compone de ocho nuevos capítulos que serán estrenados cada jueves",
+  "author": {
+    "$oid": "67ba544b1a6ada4a046b6c3b"
+  },
+  "comments": [],
+  "state": false,
+  "createdAt": {
+    "$date": "2025-02-22T23:17:49.868Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:56:28.519Z"
+  }
+}]

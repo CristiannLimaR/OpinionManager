@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "fa9e7120-29fa-4eff-9441-d82ab6017343",
+		"name": "Comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42149033"
+	},
+	"item": [
+		{
+			"name": "getMyComments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2MmYxYWUzZjFkZDgyZWFjNzQ3MWIiLCJpYXQiOjE3NDAyNzA5ODksImV4cCI6MTc0MDI3NDU4OX0.fm5Au7MwVaZUdmDpeJWn4uoePMOYBZ98cWig_kAecYo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCommentsByPost",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/publication/67b65419a530b13440c8344e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"publication",
+						"67b65419a530b13440c8344e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2MmYxYWUzZjFkZDgyZWFjNzQ3MWIiLCJpYXQiOjE3NDAyNzA5ODksImV4cCI6MTc0MDI3NDU4OX0.fm5Au7MwVaZUdmDpeJWn4uoePMOYBZ98cWig_kAecYo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\":\"God\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/publication/67ba5f095de003a229e78e75",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"publication",
+						"67ba5f095de003a229e78e75"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateComment",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2MmYxYWUzZjFkZDgyZWFjNzQ3MWIiLCJpYXQiOjE3NDAyNzA5ODksImV4cCI6MTc0MDI3NDU4OX0.fm5Au7MwVaZUdmDpeJWn4uoePMOYBZ98cWig_kAecYo",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"content\": \"Sin Haland no hicieron nada\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/67ba5b9d4e93205a2a0d1090",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"67ba5b9d4e93205a2a0d1090"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteComment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2I2MmYxYWUzZjFkZDgyZWFjNzQ3MWIiLCJpYXQiOjE3NDAyNzA5ODksImV4cCI6MTc0MDI3NDU4OX0.fm5Au7MwVaZUdmDpeJWn4uoePMOYBZ98cWig_kAecYo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/67ba5e9c5de003a229e78e57",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"67ba5e9c5de003a229e78e57"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

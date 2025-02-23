@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "67b61f999f88b162e1298756"
+  },
+  "name": "Entretenimiento",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-19T18:14:49.999Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-19T18:36:44.342Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b6222fe1073d1a1cc0dfcb"
+  },
+  "name": "Tecnologia",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-19T18:25:51.715Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-19T18:25:51.715Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b622796584ebdf8e2a956e"
+  },
+  "name": "Politica",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-19T18:27:05.348Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-20T02:52:43.459Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b65e5d108ca85d9413ebcc"
+  },
+  "name": "Futbol",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-19T22:42:37.204Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-19T22:42:37.204Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b68d47e991dc5b50a60933"
+  },
+  "name": "Musica",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-20T02:02:47.923Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-20T02:56:04.265Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b69803e991dc5b50a60940"
+  },
+  "name": "Cine",
+  "state": false,
+  "createdAt": {
+    "$date": "2025-02-20T02:48:35.933Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:56:28.533Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba55e41a6ada4a046b6c68"
+  },
+  "name": "Videojuegos",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T22:55:32.764Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T22:58:16.507Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba57251a6ada4a046b6c7d"
+  },
+  "name": "General",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-22T23:00:53.562Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-22T23:00:53.562Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67ba6ee4586d63004b57f774"
+  },
+  "name": "Basquetbol",
+  "state": true,
+  "createdAt": {
+    "$date": "2025-02-23T00:42:12.919Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-23T00:42:12.919Z"
+  }
+}]
